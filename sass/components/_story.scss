@@ -1,0 +1,82 @@
+.story {
+    width: 75%;
+    margin: 0px auto;
+    box-shadow: 0rem 2rem 6rem rgba($color-black, .3);
+    background-color: rgba($color-white, .5);
+    border-radius: 5px;
+    padding: 5rem;
+    padding-left: 6rem;
+    // padding-bottom: 10rem;
+    font-size: $default-font-size;
+
+    transform: skewX(-12deg);
+    overflow: hidden;
+
+
+
+    &_shape {
+        margin-bottom: 2rem;
+        margin-right: 2rem;
+        width: 15rem;
+        height: 15rem;
+        
+        float: left;
+
+        //To work Shape-outside MUST have a width, height and be float;
+        //shape-outside is only to set how the element (the text) is going to be shapped.
+
+        -webkit-clip-path: circle(50%);
+        clip-path: circle(50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(60% at 25% 50%);
+
+        transform: translateX(-3rem) skewX(12deg);
+
+        position: relative;
+
+
+        }
+
+    &_image {
+        width: 100%;
+        height: 100%;
+        transform: scale(1.4);
+
+
+    }
+
+    &_text {
+        transform: skewX(12deg);
+    }
+
+    &_caption {
+        color: $color-white;
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 1.7rem;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -20%);
+
+        opacity: 0;
+        backface-visibility: hidden;
+
+        transition: all .5s;
+        
+    }
+
+    &:hover &_caption{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+
+    }
+
+    &:hover &_image {
+        transform: scale(1);
+        filter: blur(3px) brightness(80%);
+
+    }
+    
+}

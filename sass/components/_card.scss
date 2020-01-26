@@ -1,0 +1,255 @@
+.card {
+
+    //FUNCTIONALLITY
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    height: 55rem;
+    
+    
+    position: relative;
+
+
+    
+
+    &_side {
+        height: 55rem;
+        transition: transform 1s ease;
+        position: absolute;
+        width: 100%;
+
+        top: 0;
+        left: 0;
+        backface-visibility: hidden;
+        box-shadow: 0 1.5rem 4rem rgba($color-black, .8);
+        border-radius: 5px;
+        overflow: hidden;
+
+        &_front {
+            background-color: $color-white;
+
+        }
+
+        &_back {
+            transform: rotateY(180deg);
+
+
+            &_1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+
+            }
+
+            &_2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+            }
+
+            &_3 {
+                background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark);
+
+            }
+        }
+
+
+    }
+    
+    &:hover &_side_front {
+        transform: rotateY(-180deg);      
+    }
+
+    &:hover &_side_back {
+        transform: rotateY(0);
+    }
+
+
+
+    &_side_picture {
+
+        background-size: cover;
+        height: 45%;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0%, 100% 0%, 100% 90%, 0% 100%);;
+        clip-path: polygon(0 0%, 100% 0%, 100% 90%, 0% 100%);
+        
+
+
+        &_1 {
+            background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark),
+            url("../img/nat-5.jpg");
+        }
+
+        &_2 {
+            background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark), url(../img/nat-6.jpg);
+        }
+
+        &_3 {
+            background-image: linear-gradient(to right bottom, $color-tertiary-light, $color-tertiary-dark), url(../img/nat-7.jpg);
+
+        }
+    }
+
+    &_side_heading {
+        font-size: 2.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-right: 1rem;
+        // -webkit-box-decoration-break: clone;
+        // box-decoration-break: clone;
+        // text-align: right;
+        white-space: nowrap;
+        position: absolute;
+        top: 20%;
+        right: 0%;
+
+
+        color: $color-white;
+
+    }
+
+      &_heading_span {
+        &_1 {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, .75), rgba($color-secondary-dark, .75));
+            padding: 1rem 1.5rem;
+
+        }
+
+        &_2 {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, .75), rgba($color-primary-dark, .75));
+            padding: 1rem 1.5rem;
+
+           
+        }
+
+        &_3 {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiary-light, .75), rgba($color-tertiary-dark, .75));
+            padding: 1rem 1.5rem;
+
+           
+        }
+    }
+
+    &_side_details {
+        
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+            
+
+
+            li {
+                
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child){
+                    border-bottom: 3px solid #eee;
+                }
+
+            }
+        }
+
+
+    }
+
+
+//STYLING BACK SIDE OF THE CARD
+
+    &_cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+        
+    }
+
+    &_price-box {
+        margin-bottom: 10rem;
+        color: $color-white;
+
+
+    }
+
+    &_price-only {
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+
+    }
+
+    &_price-value {
+        font-size: 6rem;
+        font-weight: 100;
+
+    }
+
+    @include respond(tab-port){
+
+            height: auto;
+            border-radius: 3px;
+            background-color: $color-white;
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+
+            
+
+            &_side {
+                height: 60rem;
+                transition: transform 1s ease;
+                position: relative;
+                box-shadow: none;
+                
+
+                &_back {
+                    transform: rotateY(0);
+                    height: 30rem;
+
+                    clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100vh);
+                }
+
+
+            }
+            
+            &:hover &_side_front {
+                transform: rotateY(0);      
+            }
+
+
+        //STYLING BACK SIDE OF THE CARD
+
+            &_side_details {
+                padding: 4rem 0rem 2rem 2rem;
+            }
+
+            
+            &_cta {
+                position: relative;
+                top: 0;
+                left: 0;
+                transform: translate(0);
+                width: 100%;
+                // padding: 7rem 4rem 4rem 4rem;
+                 
+            }
+
+            &_price-box {
+                margin-bottom: 3rem;
+                color: $color-white;
+
+
+            }
+            &_price-value {
+                font-size: 6rem;
+                font-weight: 100;
+
+            }
+
+            }
+
+
+
+
+}

@@ -1,0 +1,111 @@
+.form {
+
+    &_group:not(:last-child){
+        margin-bottom: 1rem;
+    }
+
+    &_input {
+        font-size: 1.5rem;
+        font-family: inherit;
+        color: inherit;
+        padding: 1.5rem 2rem;
+        border-radius: 3px;
+        background-color: rgba($color-white, .7);
+        border-style: none;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        display: block;
+        transition: all .5s;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 4rem rgba($color-black, .3);
+            border-bottom: 3px solid $color-primary-light;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+
+
+
+
+    &_label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .6rem;
+        display: block;
+        transition: all .4s;
+    }
+
+    &_input:placeholder-shown + &_label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &_radio-group {
+        width: 49%;
+        display: inline-block;
+    }
+
+    &_radio-input {
+        display: none;
+    }
+
+    &_radio-label {
+        white-space: nowrap;
+        font-size: $default-font-size;
+        cursor: pointer;
+        position: relative;
+        padding-left: 4.5rem;
+
+    }
+
+
+
+    &_radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: 5px solid $color-primary-dark;
+        border-radius: 50%;
+        display: inline-block;
+        position: absolute;
+
+        left: 0;
+        top: -.5rem;
+
+        &::after {
+            content: "";
+            display: block;
+            border-radius: 50%;
+            height: 1.3rem;
+            width: 1.3rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary-dark;
+
+            opacity: 0;
+            transition: opacity .2s;
+
+
+        }
+    }
+
+    // first selector is to see if the radio button is checked,
+    // then, select its sibling with "+" and then its child, which,
+    // is the middle circle inside the handmade radio button
+    &_radio-input:checked + &_radio-label &_radio-button::after {
+        opacity: 1;
+    }
+
+}
