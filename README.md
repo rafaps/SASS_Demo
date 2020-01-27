@@ -4,7 +4,7 @@
 
 **Project**
 
-This webpage was created using only CSS and its preprocessor SASS for training purpose.
+This webpage was created using HTML, CSS and its preprocessor SASS for training purpose.
 
 ![](https://github.com/rafaps/SASS_Demo/blob/master/web_demo.gif)
 
